@@ -1,4 +1,11 @@
 
+# GitLab bot to sync Issues labels and MergeRequest labels
+
+GitLab bot behaviours:
+
+- When a user update GitLab issue labels, if this issue is closed only by one Merge Request then this GitLab Bot synchronise Merge Request labels with issue labels.
+- When a user update GitLab Merge Request labels, GitLab Bot synchronise issues labels closed by this issue, only if this issue are closed by only one Merge Request.
+
 ## Usage
 
 ```
