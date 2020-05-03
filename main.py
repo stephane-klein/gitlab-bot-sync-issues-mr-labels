@@ -22,7 +22,7 @@ def label_sync_filter(label):
 
 
 @bot.router.register("Issue Hook")
-async def issue_opened_event(event, *args, **kwargs):
+async def issue_event(event, *args, **kwargs):
     logger.debug("issue_opened_event")
     if "labels" not in event.data["changes"]:
         logger.debug("Labels not chaned")
