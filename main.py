@@ -10,9 +10,12 @@ logger = logging.getLogger("bot")
 logger.setLevel(logging.DEBUG)
 logger.addHandler(logging.StreamHandler())
 
-bot = GitLabBot("username")
+bot = GitLabBot(os.getenv("BOT_USERNAME", "gitlab-bot"))
 
-gl = gitlab.Gitlab("https://gitlab.com", private_token=os.getenv("GL_ACCESS_TOKEN"))
+gl = gitlab.Gitlab(
+    os.getenv("GL_URL", "https://gitlab.com"),
+    private_token=os.getenv("GL_ACCESS_TOKEN")
+)
 
 # See GitLab events https://docs.gitlab.com/ee/user/project/integrations/webhooks.html#merge-request-events
 
@@ -91,6 +94,5 @@ async def merge_request_event(event, *args, **kwargs):
             logger.debug("News labels %s" % new_labels)
             issue_obj.labels = list(new_labels)
             issue_obj.save()
-
 
 bot.run()

@@ -3,3 +3,5 @@ export GL_SECRET=secret
 
 # User Access Tokens
 export GL_ACCESS_TOKEN=secret
+
+export GL_URL=https://gitlab.com

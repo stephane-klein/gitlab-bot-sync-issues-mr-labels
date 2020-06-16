@@ -1,2 +1,2 @@
-gidgetlab==0.5.0
-python-gitlab==pip2.2.0
+gidgetlab[aiohttp]==0.5.0
+python-gitlab==2.2.0
